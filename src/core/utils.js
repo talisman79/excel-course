@@ -19,7 +19,7 @@ export function storage(key, data = null) {
   if (!data) {
     return JSON.parse(localStorage.getItem(key));
   }
-  localStorage.setItem('excel-state', JSON.stringify(data));
+  localStorage.setItem(key, JSON.stringify(data));
 }
 
 export function isIqual(a, b) {
@@ -51,4 +51,12 @@ export function debounce(fn, wait) {
     clearTimeout(timeout);
     timeout = setTimeout(later, wait);
   }
+}
+
+export function clone(obj) {
+  return JSON.parse(JSON.stringify(obj));
+}
+
+export function preventDefault(event) {
+  event.preventDefault();
 }
